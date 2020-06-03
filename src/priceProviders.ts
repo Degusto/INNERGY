@@ -1,5 +1,5 @@
 import { Services, ServiceYear, ServiceType } from "./models";
-import { exists } from "./utils";
+import { exists, removeFalsies } from "./utils";
 
 export const getPhotographyPrice = (selectedServices: ServiceType[], selectedYear: ServiceYear) => {
   if (!exists(selectedServices, Services.Photography)) {
@@ -152,8 +152,4 @@ export const getTwoDaysEventPrice = (selectedServices: ServiceType[], selectedYe
   function getTwoDaysEventPrice() {
     return (isPhotographySelected || isVideoRecordingSelected) && { basePrice: 400, finalPrice: 400 };
   }
-};
-
-const removeFalsies = <T>(array: T[]) => {
-  return array.filter((x) => !!x);
 };
