@@ -1,5 +1,5 @@
-import { Services, ServiceType } from "./models";
-import { exists } from "./utils";
+import { Services, ServiceType } from "./common/models";
+import { exists } from "./common/utils";
 
 class ServiceInformationProvider {
   // From external source for example API

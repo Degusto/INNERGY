@@ -1,6 +1,6 @@
-import { Actions, ServiceType, ActionType } from "./models";
+import { Actions, ServiceType, ActionType } from "./common/models";
 import { serviceInformationProvider } from "./serviceInformationProvider";
-import { exists } from "./utils";
+import { exists } from "./common/utils";
 
 const initialState = [];
 

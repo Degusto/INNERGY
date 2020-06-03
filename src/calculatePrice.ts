@@ -1,11 +1,9 @@
-import { ServiceType, ServiceYear, PriceModel } from "./models";
-import {
-  getPhotographyPrice,
-  getVideoRecordingPrice,
-  getWeddingSessionPrice,
-  getBlurayPackagePrice,
-  getTwoDaysEventPrice,
-} from "./priceProviders";
+import { ServiceType, ServiceYear, PriceModel } from "./common/models";
+import { getPhotographyPrice } from "./priceProviders/photographyPriceProvider";
+import { getVideoRecordingPrice } from "./priceProviders/videoRecordingPriceProvider";
+import { getWeddingSessionPrice } from "./priceProviders/weddingSessionPriceProvider";
+import { getBlurayPackagePrice } from "./priceProviders/blurayPackagePriceProvider";
+import { getTwoDaysEventPrice } from "./priceProviders/twoDayEventPriceProvider";
 
 const priceProviders = [getPhotographyPrice, getVideoRecordingPrice, getWeddingSessionPrice, getBlurayPackagePrice, getTwoDaysEventPrice];
 
@@ -43,7 +41,7 @@ const findBestPrice = (prices: PriceModel[]) => {
   }
 
   return best;
-}
+};
 
 const sumDiscounts = (prices: PriceModel[]) => {
   if (prices.length === 0) {
@@ -51,7 +49,7 @@ const sumDiscounts = (prices: PriceModel[]) => {
   }
 
   return prices.map((x) => x.basePrice - x.finalPrice).reduce((x, y) => x + y);
-}
+};
 
 const sumPricesWithoutDiscounts = (prices: PriceModel[]) => {
   if (prices.length === 0) {
@@ -59,4 +57,4 @@ const sumPricesWithoutDiscounts = (prices: PriceModel[]) => {
   }
 
   return prices.map((x) => x.basePrice).reduce((x, y) => x + y);
-}
+};

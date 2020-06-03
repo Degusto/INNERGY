@@ -1,5 +1,5 @@
 import { calculatePrice } from "./calculatePrice";
-import { ServiceYear, ServiceType } from "./models";
+import { ServiceYear, ServiceType } from "./common/models";
 import { selectedServicesReducer } from "./selectedServicesReducer";
 
 describe("updateSelectedServices.select", () => {
