@@ -1,4 +1,4 @@
-import { calculatePrice } from "./calculatePrice.ts";
+import { calculatePrice } from "./calculatePrice";
 import { ServiceYear, ServiceType } from "./models";
 import { selectedServicesReducer } from "./selectedServicesReducer";
 
