@@ -1,7 +1,7 @@
-import { Services, ServiceYear, ServiceType, ServicePriceModel } from "./models";
+import { Services, ServiceYear, ServiceType } from "./models";
 import { exists } from "./utils";
 
-export function getPhotographyPrice(selectedServices: ServiceType[], selectedYear: ServiceYear): ServicePriceModel {
+export const getPhotographyPrice = (selectedServices: ServiceType[], selectedYear: ServiceYear) => {
   if (!exists(selectedServices, Services.Photography)) {
     return null;
   }
@@ -43,9 +43,9 @@ export function getPhotographyPrice(selectedServices: ServiceType[], selectedYea
   function getPhotographyPriceWithVideoRecordingIn2022() {
     return isVideoRecordingSelected && selectedYear === 2022 && { basePrice: 1900, finalPrice: 1250 };
   }
-}
+};
 
-export function getVideoRecordingPrice(selectedServices: ServiceType[], selectedYear: ServiceYear): ServicePriceModel {
+export const getVideoRecordingPrice = (selectedServices: ServiceType[], selectedYear: ServiceYear) => {
   if (!exists(selectedServices, Services.VideoRecording)) {
     return null;
   }
@@ -87,9 +87,9 @@ export function getVideoRecordingPrice(selectedServices: ServiceType[], selected
   function getVideoRecordingPriceWithPhotographyIn2022() {
     return isPhotographySelected && selectedYear === 2022 && { basePrice: 1900, finalPrice: 1250 };
   }
-}
+};
 
-export function getWeddingSessionPrice(selectedServices: ServiceType[], selectedYear: ServiceYear): ServicePriceModel {
+export const getWeddingSessionPrice = (selectedServices: ServiceType[], selectedYear: ServiceYear) => {
   if (!exists(selectedServices, Services.WeddingSession)) {
     return null;
   }
@@ -117,9 +117,9 @@ export function getWeddingSessionPrice(selectedServices: ServiceType[], selected
   function getWeddingSessionPrice() {
     return { basePrice: 600, finalPrice: 600 };
   }
-}
+};
 
-export function getBlurayPackagePrice(selectedServices: ServiceType[], selectedYear: ServiceYear): ServicePriceModel {
+export const getBlurayPackagePrice = (selectedServices: ServiceType[], selectedYear: ServiceYear) => {
   if (!exists(selectedServices, Services.BlurayPackage)) {
     return null;
   }
@@ -134,9 +134,9 @@ export function getBlurayPackagePrice(selectedServices: ServiceType[], selectedY
   function getBlurayPackagePrice() {
     return isVideoRecordingSelected && { basePrice: 300, finalPrice: 300 };
   }
-}
+};
 
-export function getTwoDaysEventPrice(selectedServices: ServiceType[], selectedYear: ServiceYear): ServicePriceModel {
+export const getTwoDaysEventPrice = (selectedServices: ServiceType[], selectedYear: ServiceYear) => {
   if (!exists(selectedServices, Services.TwoDayEvent)) {
     return null;
   }
@@ -152,8 +152,8 @@ export function getTwoDaysEventPrice(selectedServices: ServiceType[], selectedYe
   function getTwoDaysEventPrice() {
     return (isPhotographySelected || isVideoRecordingSelected) && { basePrice: 400, finalPrice: 400 };
   }
-}
+};
 
-function removeFalsies<T>(array: T[]) {
+const removeFalsies = <T>(array: T[]) => {
   return array.filter((x) => !!x);
-}
+};

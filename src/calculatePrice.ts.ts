@@ -26,7 +26,7 @@ export const calculatePrice = (selectedServices: ServiceType[], selectedYear: Se
   return { basePrice: priceWithoutDiscount, finalPrice: priceWithoutDiscount - discounts };
 };
 
-function findBestPrice(prices: PriceModel[]) {
+const findBestPrice = (prices: PriceModel[]) => {
   if (prices.length === 0) {
     return { basePrice: 0, finalPrice: 0 };
   }
@@ -45,7 +45,7 @@ function findBestPrice(prices: PriceModel[]) {
   return best;
 }
 
-function sumDiscounts(prices: PriceModel[]) {
+const sumDiscounts = (prices: PriceModel[]) => {
   if (prices.length === 0) {
     return 0;
   }
@@ -53,7 +53,7 @@ function sumDiscounts(prices: PriceModel[]) {
   return prices.map((x) => x.basePrice - x.finalPrice).reduce((x, y) => x + y);
 }
 
-function sumPricesWithoutDiscounts(prices: PriceModel[]) {
+const sumPricesWithoutDiscounts = (prices: PriceModel[]) => {
   if (prices.length === 0) {
     return 0;
   }
