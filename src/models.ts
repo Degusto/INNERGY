@@ -15,3 +15,13 @@ export const enum Services {
   TwoDayEvent = "TwoDayEvent",
   WeddingSession = "WeddingSession",
 }
+
+export type ServicePriceModel = {
+  service: ServiceType;
+  prices: null | PriceModel[];
+};
+
+export type PriceModel = {
+  basePrice: number;
+  finalPrice: number;
+};
