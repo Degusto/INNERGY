@@ -2,12 +2,11 @@ import { Services, ServiceType } from "./models";
 import { exists } from "./utils";
 
 class ServiceInformationProvider {
+  // From external source for example API
   private _services = [
     { service: Services.Photography, relatedServices: [Services.TwoDayEvent] },
     { service: Services.VideoRecording, relatedServices: [Services.BlurayPackage, Services.TwoDayEvent] },
     { service: Services.WeddingSession, relatedServices: [] },
-    { service: Services.BlurayPackage, relatedServices: [] },
-    { service: Services.TwoDayEvent, relatedServices: [] },
   ];
 
   public isMainServiceAvailable(services: ServiceType[], service: ServiceType) {

@@ -33,7 +33,5 @@ function selectService(previouslySelectedServices: ServiceType[], newService: Se
 function deselectService(previouslySelectedServices: ServiceType[], oldService: ServiceType) {
   const services = previouslySelectedServices.filter((x) => x !== oldService);
 
-  return services.filter((x) => {
-    return serviceInformationProvider.isMainServiceAvailable(services, x);
-  });
+  return services.filter((x) => serviceInformationProvider.isMainServiceAvailable(services, x));
 }
