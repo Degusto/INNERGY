@@ -10,7 +10,7 @@ import {
 const priceProviders = [getPhotographyPrice, getVideoRecordingPrice, getWeddingSessionPrice, getBlurayPackagePrice, getTwoDaysEventPrice];
 
 export const calculatePrice = (selectedServices: ServiceType[], selectedYear: ServiceYear) => {
-  const prices = [] as any;
+  const prices = [];
 
   for (let priceProvider of priceProviders) {
     const servicePrices = priceProvider(selectedServices, selectedYear);
